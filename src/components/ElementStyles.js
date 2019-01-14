@@ -22,7 +22,7 @@ export const Menu = styled.menu`
 
 //Button
 export const StyledButton = styled.button`
-background-color:${props => props.backgroundColor || '#00AAE8'};
+background-color:${props => props.backgroundColor || 'rgba(77, 255, 60, 0.774)'};
 color: white;
 width: 170px;
 height: 40px;
