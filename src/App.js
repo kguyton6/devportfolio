@@ -6,7 +6,7 @@ import Contact from './components/Contact'
 import Projects from './components/projects/Projects'
 import Helo from './components/projects/Helo'
 import Privy from './components/projects/Privy'
-import Roadmap from './components/projects/Roadmap'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import routes from './routes'
 
@@ -16,6 +16,7 @@ class App extends Component {
       <div>
         <Header />
         {routes}
+        <Footer/>
        </div>
     );
   }

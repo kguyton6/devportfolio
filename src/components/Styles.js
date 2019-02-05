@@ -89,6 +89,11 @@ export const Wrapper = styled.div`
     button {
         animation: slide 2s ease forwards;
     }
+    a {
+        position: absolute;
+        left: 5%;
+        top: 0;
+    }
     @keyframes slide {
         0% {transform: translateY(900px);}
         100% { transform: translateY(0px);}

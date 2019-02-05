@@ -23,11 +23,12 @@ const StyledHeader = styled.header`
     position: relative;
     padding:0 20px 0 10px;
   }
-  div span {
+  a span {
     font-size: 28px;
     font-weight: 700;
     position: relative;
     margin-top: 20px;
+    line-height: 80px;
 
   }
   i {color: white; font-size: 18px;}
@@ -66,7 +67,7 @@ class Header extends React.Component {
 
     <StyledHeader {...this.props} >
       <div>
-        <span>Dev Portfolio</span>
+        <Link to='/'><span>Dev Portfolio</span></Link>
         <Link to='/contact'>  <Button name='Get in Touch'/> </Link>
          </div>
          <hr/>
@@ -75,7 +76,7 @@ class Header extends React.Component {
          <legend>
          <email>kimguyton@gmail.com</email>
         <a href='https://twitter.com/Kguyton6'><i className="fab fa-twitter"></i></a> 
-        <a href='https://www.linkedin.com/in/kimberly-guyton/'></a> <i className="fab fa-linkedin-in" aria-hidden="true"></i>
+        <a href='https://www.linkedin.com/in/kimberly-guyton/'> <i className="fab fa-linkedin-in" aria-hidden="true"></i></a>
         <a href='https://github.com/kguyton6'> <i class="fab fa-github"></i></a>
          </legend>
 

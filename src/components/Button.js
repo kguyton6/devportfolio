@@ -12,7 +12,11 @@ font-weight: 600;
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 border: ${props => props.border || 'thin white solid' };
 border-radius: 1px;
-
+:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
 @media(max-width: 1300px){
     width: 140px;
     height: 35px;
