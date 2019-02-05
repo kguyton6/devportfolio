@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   display: flex;
   position: relative;
   z-index: 1;
-  padding: 30px 20px 30px 0;
+  padding: 30px 0px 20px 0px;
   align-items: center;
    box-sizing: border-box;
   flex-direction: column;
@@ -20,8 +20,9 @@ const StyledHeader = styled.header`
     width: 90%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: relative;
-    padding:0 20px 0 10px;
+
   }
   a span {
     font-size: 28px;
@@ -60,9 +61,6 @@ class Header extends React.Component {
  
 
   render(){
-  const {toggleMenu} = this.props
-
-
   return (
 
     <StyledHeader {...this.props} >
