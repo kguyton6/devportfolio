@@ -1,28 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 import SideBar from './SideBar'
-import Nav from './Nav'
-// import menu from '../assets/menu.png'
+import NavBar from './NavBar'
+import Button from './Button'
+import {Link} from 'react-router-dom'
 
 const StyledHeader = styled.header`
-  background-color: black;
-  height: 100px;
-  color: white;
+  background-color: rgba(0, 0, 0, .945);
+  height: 180px;
   display: flex;
-  align-items: center;
   position: relative;
   z-index: 1;
-  justify-content: space-evenly;
+  padding: 30px 20px 30px 0;
+  align-items: center;
+   box-sizing: border-box;
+  flex-direction: column;
 
-  .logo {
-    width: 240px;
-    height: 45px;
-    margin-left: 150px;
-    @media (max-width: 1100px) {
-      margin-left: 80px;
-    }
+  div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding:0 20px 0 10px;
   }
+  div span {
+    font-size: 28px;
+    font-weight: 700;
+    position: relative;
+    margin-top: 20px;
 
+  }
+  i {color: white; font-size: 18px;}
   .menu-icon {
       width: 60px;
       height: auto;
@@ -32,17 +40,17 @@ const StyledHeader = styled.header`
     @media(max-width: 600px) {
       height: 30px;
     }
-    h1 {
-      text-indent: 5%;
-      font-size: 40px;
-      font-family: 'Happy Monkey';
-      width: auto;
-      @media (max-width: 1200px){
-        font-size: 32px;
-      }
-      
+    legend {
+      font-size: 14px;
+      font-weight: bold;
+      width: 20%;
+      display: flex;
+      justify-content: space-between;
     }
-  
+      hr {
+        width: 90%;
+      margin: auto;
+      }
 `;
 
 
@@ -57,11 +65,23 @@ class Header extends React.Component {
   return (
 
     <StyledHeader {...this.props} >
+      <div>
+        <span>Dev Portfolio</span>
+        <Link to='/contact'>  <Button name='Get in Touch'/> </Link>
+         </div>
+         <hr/>
+         <div>
+         <NavBar  /> 
+         <legend>
+         <email>kimguyton@gmail.com</email>
+        <a href='https://twitter.com/Kguyton6'><i className="fab fa-twitter"></i></a> 
+        <a href='https://www.linkedin.com/in/kimberly-guyton/'></a> <i className="fab fa-linkedin-in" aria-hidden="true"></i>
+        <a href='https://github.com/kguyton6'> <i class="fab fa-github"></i></a>
+         </legend>
 
-{this.props.children}
 
-         <Nav className='nav' nav={this.props.nav} />     
-
+         </div>    
+        {/* {this.props.children} */}
     </StyledHeader>
  
   );

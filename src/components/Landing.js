@@ -1,19 +1,30 @@
 import React from 'react'
-import Header from './Header'
-import styled from 'styled-components'
-import {Main} from './Styles'
+
+import {Main, Section} from './Styles'
 
 
 
 const Landing = () => {
+   
     return (
-        <div className='App'>
-        <Header />
+        <div >
             <Main>
-            <div className='home-banner'><span>Kim Guyton</span></div>
-        </Main>
+            <WelcomeBanner/>
+             </Main>
         </div>
     )
 }
 
 export default Landing
+
+
+export const WelcomeBanner = (props) => {
+    return (
+    <Section>
+    <h1>Kimberly Guyton</h1>
+    <h2>Web Developer</h2>
+    <p>Welcome! I invite you to explore my site to get a better understanding of my specialties, technique and professional experience. Enjoy browsing, and get in touch with any questions.</p>
+    </Section> 
+
+    )
+}

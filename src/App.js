@@ -4,33 +4,19 @@ import Landing from './components/Landing'
 import About from './components/About'
 import Contact from './components/Contact'
 import Projects from './components/projects/Projects'
-import Gallery from './components/Gallery'
 import Helo from './components/projects/Helo'
 import Privy from './components/projects/Privy'
 import Roadmap from './components/projects/Roadmap'
-
+import Header from './components/Header'
+import routes from './routes'
 
 class App extends Component {
   render() {
     return (
-      <Router>
-       <Switch>
-        <Route exact path='/' component={Landing} />
-        <Route path='/about' component={About}/>
-        <Route path='/contact' component={Contact}/>
-        <Route path='/projects' render={() => (
-           <Projects >
-             <Switch>
-               <Route path='/projects/helo' component={Helo} />
-               <Route path='/projects/privy' component={Privy} />
-               <Route path='/projects/roadmap' component={Roadmap} />
-             </Switch>
-             </Projects>
-
-        )}/>
-        <Route path='/gallery' component={Gallery} />
-       </Switch>
-       </Router>
+      <div>
+        <Header />
+        {routes}
+       </div>
     );
   }
 }

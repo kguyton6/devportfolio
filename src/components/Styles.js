@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
+export const Main = styled.main`
 background-image: url('https://images.unsplash.com/photo-1543443436-bc6deeff2eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
 background-position-y: -600px;
 background-size: 100%;
@@ -10,21 +10,6 @@ width: 100vw;
 display: flex;
 justify-content: center;
 
-
-.home-banner {
-    width: 80%;
-    height: 60%;
-    background-color:rgba(3, 3, 3, 0.842);
-    z-index: 10;
-    box-shadow: 1px 1px 1px 1px rgba(3, 3, 3, 0.575);
-    color: white;
-    margin-top: 7%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-
-
-}
 span {
     font-size: 80px;
     font-family:'Alegreya Sans SC', sans-serif;
@@ -37,3 +22,80 @@ span {
     height: 500px;
 }
 `
+
+
+export const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(17, 17, 17, 0.842);
+    z-index: 10;
+    padding: 105px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    h1 {font-size: 72px; font-weight: 900; line-height: 72px;
+    animation:slide 1s ease forwards; 
+    /* transition-delay: .5s; */
+
+}
+    h2 {font-size: 20px; line-height: 33px; margin: 30px; font-weight: 400; 
+
+    animation: slide 1.5s ease forwards;
+    }
+    p { 
+    animation: slide 2s ease forwards;    
+    width: 70%; text-align: center; font-weight: 400; line-height: 26px;}
+
+    @keyframes slide {
+        0% {transform: translateY(800px);}
+        100% { transform: translateY(0px);}
+    }
+    `
+    
+export const Wrapper = styled.div`
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    flex-shrink: 1;
+    position: relative;
+    h1 {
+        font-size: 40px;
+        line-height: 43px;
+        font-family: 'Raleway', sans-serif;
+        animation: slide-reverse 2s ease forwards;
+    }
+    img {
+        animation: slide-reverse 1s ease forwards;
+    }
+    p {
+        width: 50%;
+        text-align: center;
+        font-size: 15px;
+        line-height: 29px;
+        font-weight: 400;
+        margin-bottom: 3%;
+        animation: slide 1s ease forwards;
+    }
+    button {
+        animation: slide 2s ease forwards;
+    }
+    @keyframes slide {
+        0% {transform: translateY(900px);}
+        100% { transform: translateY(0px);}
+    }
+    @keyframes slide-reverse {
+        0% {transform: translateY(-100px);}
+        100% { transform: translateY(0px);}
+    }
+`
+

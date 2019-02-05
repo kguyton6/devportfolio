@@ -20,26 +20,6 @@ export const Menu = styled.menu`
     }
 `
 
-//Button
-export const StyledButton = styled.button`
-background-color:${props => props.backgroundColor || 'rgba(77, 255, 60, 0.774)'};
-color: white;
-width: 170px;
-height: 40px;
-font-size: 15px;
-font-weight: 600;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-border: ${props => props.border || 'none' };
-border-radius: 3px;
-
-@media(max-width: 1300px){
-    width: 140px;
-    height: 35px;
-    font-size: 13px;
-}
-`
-
-
 //Input
 export const StyledInput = styled.input`
   width: ${props => props.width || "80%"};
@@ -58,3 +38,5 @@ height: 60%;
     align-items: center;
 
 `
+
+
