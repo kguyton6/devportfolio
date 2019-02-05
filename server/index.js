@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 app.post('/api/message', ctrl.send_message) 
   
 
-const Port = SERVER_PORT || 4000
+const Port = SERVER_PORT || 5000
 
 app.use( express.static( `${__dirname}/../build`)) 
 
