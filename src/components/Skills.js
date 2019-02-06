@@ -12,12 +12,12 @@ import express from '../assets/express.png'
 const Grid = styled.div`
     display: flex;
     flex-wrap: wrap;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 20px;
+    justify-content: center;
     padding: 20px;
     .grid-item {
-        height: 300px;
+        height: 400px;
         width: auto;
+        padding-bottom: 20px;
     }
 `
 

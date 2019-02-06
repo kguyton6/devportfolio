@@ -30,7 +30,7 @@ export const Section = styled.section`
     width: 100%;
     height: 100%;
     background-color:rgba(17, 17, 17, 0.842);
-    z-index: 10;
+    /* z-index: 1; */
     padding: 105px;
     display: flex;
     /* justify-content: center; */
@@ -54,11 +54,24 @@ export const Section = styled.section`
         0% {transform: translateY(800px);}
         100% { transform: translateY(0px);}
     }
+    @media (max-width: 750px){
+        padding: 50px;
+        h1 {font-size: 50px;}
+    }
+    @media (max-width: 600px){
+        padding: 20px;
+        h1 {font-size: 40px; width: 80%;}
+    }
+    @media (max-width: 450px){
+        padding: 10px;
+        h1 {font-size: 32px;}
+    }
+
     `
     
 export const Wrapper = styled.div`
     background-color: black;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -66,7 +79,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     padding-top: 30px;
     padding-bottom: 50px;
-    flex-shrink: 1;
+    flex-shrink: 2;
     position: relative;
     h1 {
         font-size: 40px;
@@ -89,11 +102,7 @@ export const Wrapper = styled.div`
     button {
         animation: slide 2s ease forwards;
     }
-    a {
-        position: absolute;
-        left: 5%;
-        top: 0;
-    }
+    
     @keyframes slide {
         0% {transform: translateY(900px);}
         100% { transform: translateY(0px);}
@@ -102,5 +111,10 @@ export const Wrapper = styled.div`
         0% {transform: translateY(-100px);}
         100% { transform: translateY(0px);}
     }
+    @media (max-width: 800px){
+        p { width: 80%;}
+    }
+   
+   
 `
 

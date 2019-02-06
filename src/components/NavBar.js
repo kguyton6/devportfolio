@@ -16,10 +16,25 @@ const Link = styled(NavLink)`
 
 const Nav = styled.nav`
   display: flex;
-  width: 24%;
+  width: 26%;
   color: white;
   justify-content: space-between;
-
+  @media(max-width: 1250px){
+    width: 33%;
+    
+  }
+  @media (min-width: 750px) and (max-width: 900px){
+    a {font-size: 12px;}
+    
+  }
+  @media(max-width: 900px){
+    width: 50%;
+    /* a {font-size: 14px;} */
+    
+  }
+  @media(max-width: 600px){
+    display: none;
+  }
 `;
 
 class NavBar extends React.Component  {

@@ -31,7 +31,7 @@ position: relative;
         }
     }
     textarea {
-        height: 90px;
+        height: 100px;
 
 
     }
@@ -46,6 +46,7 @@ position: relative;
         margin-bottom: 20px;
     }
     email, a {
+        text-align: center;
         margin-bottom: 20px;
 
     }
@@ -59,6 +60,15 @@ position: relative;
         float: right;
         margin-top: 10px;
     }
+    @media (max-width: 750px){
+        textarea {height: 130px;}
+    }
+    @media (max-width: 600px){
+        width: 80%;
+        email, a {display: none;}
+        h3 {font-size: 30px;}
+    }
+  
 `
 
 class Contact extends React.Component{

@@ -5,14 +5,14 @@ import {Link} from 'react-router-dom'
 const VideoWrapper = styled(Wrapper)`
     heading {font-size: 36px; font-family: 'Raleway', sans-serif; font-weight:500;}
     h2 {font-size: 20px; margin: 20px;}
-    a {position: absolute; left: 5%; top: 0;}
+    .goback {position: absolute; left: 5%; top: 0;}
 `
 
 
 const Helo = () => {
     return (
         <VideoWrapper>
-            <Link to='/projects'>{`<< Go Back`}</Link>
+            <Link to='/projects' className='goback'>{`<< Go Back`}</Link>
             <heading>Helo</heading>
             <h2>Social Network Application</h2>
             

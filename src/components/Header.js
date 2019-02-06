@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import SideBar from './SideBar'
+import menu from '../assets/menu.png'
 import NavBar from './NavBar'
 import Button from './Button'
 import {Link} from 'react-router-dom'
+import DropDown from "./DropDown";
 
 const StyledHeader = styled.header`
   background-color: rgba(0, 0, 0, .945);
@@ -21,7 +22,7 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+
 
   }
   a span {
@@ -33,15 +34,7 @@ const StyledHeader = styled.header`
 
   }
   i {color: white; font-size: 18px;}
-  .menu-icon {
-      width: 60px;
-      height: auto;
-      margin-left: 3%;
-      cursor: pointer;
-    }
-    @media(max-width: 600px) {
-      height: 30px;
-    }
+ 
     legend {
       font-size: 14px;
       font-weight: bold;
@@ -53,12 +46,55 @@ const StyledHeader = styled.header`
         width: 90%;
       margin: auto;
       }
-`;
+      @media (max-width: 1250px){
+          legend {width: 23%;}
 
+      }
+      @media (max-width: 900px){
+        email {font-size: 12px;}
+        legend {width: 30%;}
+      }
+      
+      @media (max-width: 750px){
+        email {display: none;}
+        legend {width: 15%;}
+      }
+      @media (max-width: 600px){
+        button {display: none;}
+        legend {position: absolute; top: 100px;}
+      }
+      @media(max-width: 450px){
+        legend {width: 25%;}
+    }
+`;
+const Menu = styled.img`
+  display: none;
+  @media(max-width: 600px) {
+    display: inline-block;
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+   
+  }
+
+`
 
 
 class Header extends React.Component {
- 
+ state = {
+   showDropdown: false
+ }
+
+ toggleMenu = () => {
+   this.setState(prevState => {
+     return { showDropdown: !prevState.showDropdown }
+   })
+ }
+ showMenu = () => {
+   if(this.state.showDropdown){
+     return <DropDown />
+   }
+ }
 
   render(){
   return (
@@ -67,6 +103,7 @@ class Header extends React.Component {
       <div>
         <Link to='/'><span>Dev Portfolio</span></Link>
         <Link to='/contact'>  <Button name='Get in Touch'/> </Link>
+        <Menu src={menu} alt='menu' onClick={this.toggleMenu}/>
          </div>
          <hr/>
          <div>
@@ -80,7 +117,7 @@ class Header extends React.Component {
 
 
          </div>    
-        {/* {this.props.children} */}
+      {this.showMenu()}
     </StyledHeader>
  
   );

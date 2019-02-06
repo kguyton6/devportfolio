@@ -5,23 +5,21 @@ const nodemailer = require('nodemailer')
 module.exports = {
     send_message: (req, res) => {
         const { message, name, email, subject } = req.body
-        console.log(req.body)
         const {MYEMAIL, MYPASSWORD} = process.env
     
         const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
+           service: 'gmail',
+        auth: {
             user: MYEMAIL,
-            password: MYPASSWORD
-
+            pass: MYPASSWORD
+          }
         })
+
         const mailOptions = {
-          from: `"${name}" <${email}>`,
+          from: `${email}`,
           to: `"Kim Guyton" <kimguyton@gmail.com>`,
-          subject: `${subject}`,
-          text: `${message}`,
-           replyTo: `${email}`,
-           html: `<b>${message}</b>`
+          subject: `${subject} - Sent From Portfolio`,
+           html: `<p>${message}<br/>From ${name}</p>`
         }
         console.log(mailOptions)
         transporter.sendMail(mailOptions, (err, info) => {

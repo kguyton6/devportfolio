@@ -1,17 +1,17 @@
 import React from 'react';
-import { MenuItem } from 'react-bootstrap';
 import {Menu} from './ElementStyles.js'
-
-
+import {Link} from 'react-router-dom'
 
 const DropDown = (props) => {
  
     return (
    
       <Menu open={props.open} {...props}>
-        <MenuItem >Edit Profile</MenuItem>
-        <MenuItem onClick={props.logout}>Logout</MenuItem>  
-        <MenuItem onClick={props.delete}>Delete Account</MenuItem>
+        <Link to='/' >Home</Link>
+        <Link to='/about'>About</Link> 
+        <Link to='/contact'>Contact</Link>
+        <Link to='/projects'>Projects</Link>
+        <Link to='/skills'>Skills</Link>
       </Menu>
 
 

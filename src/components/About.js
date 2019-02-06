@@ -11,6 +11,11 @@ const Picture = styled.img`
     border-radius: 60%;
     margin: 30px;
     border: black thin solid;
+    @media (max-width: 750px){
+        width: auto;
+        height: 200px;
+
+    }
 `
 
 
