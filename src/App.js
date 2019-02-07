@@ -9,12 +9,31 @@ import Privy from './components/projects/Privy'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import routes from './routes'
+import {withRouter} from 'react-router'
 
 class App extends Component {
+  state = {
+    swap: false,
+    title: 'Dev Portfolio'
+  }
+   
+  swapLinks = () => {
+    this.setState(prevState => {
+      return { swap: !prevState.swap}})
+   }
+  
+   swapTitle = () => {
+     if(this.state.swap){
+       var title = 'Projects'
+      } else {
+        title = 'Dev Portfolio'
+      }
+      this.setState({title: title})
+   }
   render() {
     return (
       <div>
-        <Header />
+        <Header swapLinks={this.swapLinks} swap={this.state.swap} title={this.state.title}/>
         {routes}
         <Footer/>
        </div>
@@ -22,4 +41,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -1,43 +1,41 @@
 import React from 'react'
-import { Wrapper } from '../Styles';
-import mobile from '../../assets/mobileview.png'
-import {Link} from 'react-router-dom'
-import Carousel from 'react-bootstrap/Carousel'
-import business2 from '../../assets/business2.png'
+import Carousel from './Carousel'
 import styled from 'styled-components'
-
-const Div = styled.div `
-    img {
-    width: auto;
-    height: 400px;
-    }
-
+const Wrapper = styled.div `
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 `
-const Privy = () => {
-    return (
+
+class Privy extends React.Component {
+   state = {
+    slides: [
+        'https://s3.us-east-2.amazonaws.com/kims-portfolio/privyhome.png',
+        'https://s3.us-east-2.amazonaws.com/kims-portfolio/privyhome2.png',
+        'https://s3.us-east-2.amazonaws.com/kims-portfolio/mobileview.png',
+        'https://s3.us-east-2.amazonaws.com/kims-portfolio/business.png',
+        'https://s3.us-east-2.amazonaws.com/kims-portfolio/business2.png',
+        'https://s3.us-east-2.amazonaws.com/kims-portfolio/searchresults.png',
+        'https://s3.us-east-2.amazonaws.com/kims-portfolio/privylogin.png',
+]
+   }
+
+  render() {
+   
+      return (
         <Wrapper>
 
-               <Link to='/projects'>{`<< Go Back`}</Link>
-            PrivyChic
-            <Carousel>
-                <Carousel.Item>
-            <img 
-               className="d-block w-100"
-                src={mobile} aFlt='First slide'/>
- <Carousel.Caption>
-      <h3>Mobile Responsive</h3>
-      <p></p>
-    </Carousel.Caption>
-            </Carousel.Item>
-            {/* <Carousel.Item>
-            <img 
-            className="d-block w-100"
-            src={business2} aFlt='Second slide'/>
-            </Carousel.Item> */}
-            </Carousel>
+          <Carousel slides={this.state.slides}/>
 
-</Wrapper>
+          <h1>Demo</h1>
+          <iframe width="70%" height="500px" src="https://www.youtube.com/embed/fO-7IRUwfPA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </Wrapper>
+
     )
+        }
 }
 
 export default Privy

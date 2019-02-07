@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Main = styled.main`
 background-image: url('https://images.unsplash.com/photo-1543443436-bc6deeff2eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
 background-position-y: -600px;
-background-size: 100%;
+background-size: cover;
 background-repeat: no-repeat;
 height: 100vh;
 width: 100vw;
@@ -21,6 +21,9 @@ span {
     width: 100%;
     height: 500px;
 }
+@media (max-width: 750px){
+   background-position-y: -200px;
+}
 `
 
 
@@ -33,11 +36,10 @@ export const Section = styled.section`
     /* z-index: 1; */
     padding: 105px;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     box-sizing: border-box;
     position: relative;
-    h1 {font-size: 72px; font-weight: 900; line-height: 72px;
+    h1 {font-size: 72px; font-weight: 900; line-height: 72px; text-align:center;
     animation:slide 1s ease forwards; 
     /* transition-delay: .5s; */
 
@@ -88,6 +90,8 @@ export const Wrapper = styled.div`
         animation: slide-reverse 2s ease forwards;
     }
     img {
+        max-width: 400px;
+
         animation: slide-reverse 1s ease forwards;
     }
     p {

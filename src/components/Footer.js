@@ -11,7 +11,7 @@ const StyledFooter = styled.footer`
     padding:20px;
     width: 100%;
     justify-content: space-between;
-    links {
+    nav {
         display: flex;
         width: 130px;
         justify-content: space-evenly;
@@ -29,14 +29,14 @@ const Footer = () => {
     return (
         <StyledFooter>
             <address>
-            <email>kimguyton@gmail.com<br/>
-            435-669-1797</email>
+            <span>kimguyton@gmail.com<br/>
+            435-669-1797</span>
             </address>
-            <links>
+            <nav>
            <a href='https://twitter.com/Kguyton6'><i className='fab fa-twitter'></i></a> 
            <a href='https://www.linkedin.com/in/kimberly-guyton/'><i className='fab fa-linkedin'></i></a> 
            <a href='https://github.com/kguyton6'><i className='fab fa-github'></i></a> 
-           </links>
+           </nav>
         </StyledFooter>
     )
 }

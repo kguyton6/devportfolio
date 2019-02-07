@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-// import Button from "./Button";
 import { NavLink } from "react-router-dom";
+import { withRouter } from 'react-router'
+
 const Link = styled(NavLink)`
     display: inline;
     font-size: 14px;
@@ -17,8 +18,11 @@ const Link = styled(NavLink)`
 const Nav = styled.nav`
   display: flex;
   width: 26%;
+  height: ${ props => props.height || '20px'};
+  line-height: 25px;
   color: white;
   justify-content: space-between;
+  transition: ${props => props.transition };
   @media(max-width: 1250px){
     width: 33%;
     
@@ -36,17 +40,77 @@ const Nav = styled.nav`
     display: none;
   }
 `;
+const ProjectLinks = styled.nav`
+  display: flex;
+  width: 26%;
+  height: ${ props => props.height || '20px'};
+  line-height: 25px;
+  color: white;
+  justify-content: space-between;
+  transition: ${props => props.transition };
+  @media(max-width: 1250px){
+    width: 33%;
+    
+  }
+  @media (min-width: 750px) and (max-width: 900px){
+    a {font-size: 12px;}
+    
+  }
+  @media(max-width: 900px){
+    width: 40%; }
+  @media(max-width: 750px){
+    width: 60%;
+     }
+     @media(max-width: 500px){
+       width: 80%;
+     }
+
+`;
+
+
+
 
 class NavBar extends React.Component  {
-  
-      render() {
+  state = {
+    id: '', 
+    showExpansionPanel: false,
 
-    return (
-                  
-          <Nav onClick={this.props.toggleMenu}>
-          
+  }
+
+ componentDidMount = () => {
+ 
+
+ }
+ 
+  showPanel = () => {
+      return (
+        <ProjectLinks transition={this.state.transition} onClick={this.props.toggleMenu}>
+        <Link to='/' onClick={() => this.props.swapLinks()}><u>Home</u></Link>
+        <Link to="/projects/helo" >
+            Helo
+        </Link> 
+           <Link to="/projects/privy">
+            PrivyChic
+           </Link>
+           <Link to="/projects/roadmap">
+            Roadmap
+           </Link>
+        </ProjectLinks>
+  
+      )
+    }
+   
+  
+
+      render() {
+        console.log(this.props)
+    return this.props.swap ? (
+
+           this.showPanel()
+
+):(
+  <Nav transition={this.state.transition} onClick={this.props.toggleMenu}>   
             {this.props.children}
-            {/* {this.props.nav === 'landing' ? <> */}
             <Link activeClassName='active' to="/" onClick={this.props.toggleMenu}>
              Home
          </Link> 
@@ -56,32 +120,18 @@ class NavBar extends React.Component  {
             <Link  activeClassName='active' to="/contact">
              Contact
             </Link>
-            <Link  activeClassName='active'  to="/projects">
+            <Link onClick={() => this.props.swapLinks()} activeClassName='active'  to="/projects">
              Projects
             </Link>
             <Link  activeClassName='active' to="/skills">
              Skills
             </Link> 
-            {/* </>
-           :
-<> */}
-           {/* <NavLink to="/" onClick={this.props.toggleMenu}>
-          Helo
-      </NavLink> 
-         <NavLink to="/about">
-          PrivyChic
-         </NavLink>
-         <NavLink to="/contact">
-          Roadmap
-         </NavLink>
-         <NavLink to="/projects">
-          Projects
-    </NavLink> </> } */}
           </Nav>
 
 
-    );
+
+    )
   }
 }
 
-export default NavBar
+export default withRouter(NavBar)

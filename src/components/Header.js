@@ -5,7 +5,7 @@ import NavBar from './NavBar'
 import Button from './Button'
 import {Link} from 'react-router-dom'
 import DropDown from "./DropDown";
-
+import {withRouter} from 'react-router'
 const StyledHeader = styled.header`
   background-color: rgba(0, 0, 0, .945);
   height: 180px;
@@ -47,16 +47,16 @@ const StyledHeader = styled.header`
       margin: auto;
       }
       @media (max-width: 1250px){
-          legend {width: 23%;}
+          legend {width: 28%;}
 
       }
       @media (max-width: 900px){
-        email {font-size: 12px;}
-        legend {width: 30%;}
+        address {font-size: 12px;}
+        /* legend {width: 33%;} */
       }
       
       @media (max-width: 750px){
-        email {display: none;}
+        address {display: none;}
         legend {width: 15%;}
       }
       @media (max-width: 600px){
@@ -82,7 +82,15 @@ const Menu = styled.img`
 
 class Header extends React.Component {
  state = {
-   showDropdown: false
+   showDropdown: false,
+   id: '',
+   swap: false,
+   title: 'Dev Portfolio',
+   sub: 'Projects'
+ }
+
+ componentDidCatch(err){
+
  }
 
  toggleMenu = () => {
@@ -96,23 +104,25 @@ class Header extends React.Component {
    }
  }
 
+
   render(){
+    console.log(this.props)
   return (
 
     <StyledHeader {...this.props} >
       <div>
-        <Link to='/'><span>Dev Portfolio</span></Link>
+        <Link to='/'><span>{this.props.swap? this.state.sub : this.props.title}</span></Link>
         <Link to='/contact'>  <Button name='Get in Touch'/> </Link>
         <Menu src={menu} alt='menu' onClick={this.toggleMenu}/>
          </div>
          <hr/>
          <div>
-         <NavBar  /> 
+         <NavBar swapLinks={this.props.swapLinks} swap={this.props.swap} /> 
          <legend>
-         <email>kimguyton@gmail.com</email>
+         <address>kimguyton@gmail.com</address>
         <a href='https://twitter.com/Kguyton6'><i className="fab fa-twitter"></i></a> 
         <a href='https://www.linkedin.com/in/kimberly-guyton/'> <i className="fab fa-linkedin-in" aria-hidden="true"></i></a>
-        <a href='https://github.com/kguyton6'> <i class="fab fa-github"></i></a>
+        <a href='https://github.com/kguyton6'> <i className="fab fa-github"></i></a>
          </legend>
 
 
@@ -125,4 +135,4 @@ class Header extends React.Component {
 }
 
 
-export default Header
+export default withRouter(Header)

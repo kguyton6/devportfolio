@@ -9,7 +9,9 @@ const {SERVER_PORT} = process.env
 
 app.use(bodyParser.json())
   
-app.post('/api/message', ctrl.send_message) 
+app.post('/api/message', ctrl.send_message, ((req, res) => {
+   res.status(200).send('Confirmation')
+})) 
   
 
 const Port = SERVER_PORT || 5000

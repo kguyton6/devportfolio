@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Image = styled.img`
+    width: auto;
+    height: 500px;
+`
 //Dropdown
 export const Menu = styled.menu`
     background-color: white;

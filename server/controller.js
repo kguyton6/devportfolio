@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer')
 
 
 module.exports = {
-    send_message: (req, res) => {
+    send_message: (req, res, next) => {
         const { message, name, email, subject } = req.body
         const {MYEMAIL, MYPASSWORD} = process.env
     
@@ -21,13 +21,13 @@ module.exports = {
           subject: `${subject} - Sent From Portfolio`,
            html: `<p>${message}<br/>From ${name}</p>`
         }
-        console.log(mailOptions)
         transporter.sendMail(mailOptions, (err, info) => {
           if (err) {
-            console.error('there was an error: ', err);
+            res.status(404).send('there was an error: ', err);
           } else {
             console.log('Message Sent: %s ', info.response)
           }
+          next()
         }
-     )}
-}
+        )} 
+    }

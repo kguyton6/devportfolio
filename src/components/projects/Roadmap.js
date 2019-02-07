@@ -36,13 +36,10 @@ class Roadmap extends React.Component {
     return (
         <Wrapper>
             <h1>Roadmap</h1>
-            <div style={{display: 'flex', alignItems: 'center'}}>
+
          
-            {this.showImage()}
-           <ChevronRight onClick={this.togglePhotos} style={{cursor: 'pointer'}} className="fas fa-chevron-right"></ChevronRight>
-      
-          {/* <video width='60%' height='350px' autoplay={true}src={calendarMovie} ></video> */}
-          </div>
+
+          
         </Wrapper>
     )
 }
