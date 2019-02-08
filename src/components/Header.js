@@ -100,7 +100,7 @@ class Header extends React.Component {
  }
  showMenu = () => {
    if(this.state.showDropdown){
-     return <DropDown />
+     return <DropDown onClose={this.toggleMenu}/>
    }
  }
 

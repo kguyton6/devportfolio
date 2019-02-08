@@ -22,6 +22,30 @@ const ModalWrapper = styled.div`
     0% {left: 0%;}
     100% {left: 40%}
   }
+  @media(max-width: 950px){
+    @keyframes leftslide {
+      0% {left: 0%;}
+      100% {left: 33vw;}
+    }
+  }
+  @media(max-width: 700px){
+    @keyframes leftslide {
+      0% {left: 0%;}
+      100% {left: 28%;}
+    }
+  }
+  @media(max-width: 500px){
+    width: 200px;
+    button { width: 60%;}
+    
+  }
+  @media(max-width: 450px){
+    @keyframes leftslide {
+      0% {left: 0%;}
+      100% {left: 22%;}
+    }
+
+  }
 
 
 `

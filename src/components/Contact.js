@@ -4,7 +4,7 @@ import {Wrapper} from './Styles'
 import {withRouter} from 'react-router'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import Modal from './Modal1';
+import Modal from './Modal';
 const Button = styled.button `
     background-color: lightblue;
     width: 130px;
