@@ -16,9 +16,11 @@ const Img = styled.img`
 const ProjectContainer = styled.main`
     display: flex;
     flex-direction: column;
+    color: white;
     h1, h2 {text-align: center; margin: 20px;}
     h1 {font-size: 30px; }
     h2 {font-size: 20px;}
+    
     .project-preview {
       display: flex;
       width: 100%;

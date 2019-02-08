@@ -25,7 +25,7 @@ class About extends React.Component {
             <Wrapper>
                 <h1>The Full Story</h1>
                 <Picture src={pic} alt=''/>
-                <p>As a passionate and motivated developer, I’m constantly striving to improve my technique, expand my skillset and find new opportunities to grow. Each of my projects - both solo and collaborative - have provided growth and allowed me to establish myself within this competitive industry. </p>
+                <p style={{color: 'white'}}>As a passionate and motivated developer, I’m constantly striving to improve my technique, expand my skillset and find new opportunities to grow. Each of my projects - both solo and collaborative - have provided growth and allowed me to establish myself within this competitive industry. </p>
                <Link to='/contact'> <Button name='Get in Touch'/> </Link>
             </Wrapper>
         )

@@ -4,17 +4,9 @@ import styled from "styled-components";
 
 
 const Slider = styled.img`
-  height: 600px;
+  height: auto;
   width: 80%;
-  @media (max-width: 900px){
-      height: 450px;
-  }
-  @media (max-width: 750px){
-      height:350px;
-  }
-  @media (max-width: 600px){
-      height:250px;
-  }
+  
 `;
 
 
@@ -22,19 +14,19 @@ const Card = styled.article`
         width: 90%;
         height: auto;
         box-sizing: border-box;
-        padding: 50px 5px 10px 5px;
+        padding: 30px 5px 15px 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: white;
         position: relative;
-
+    h1 {font-weight: bold;}
 `
 
 const Right = styled.i`
   position: absolute;
   right: 15px;
-  top: 50%;
+  bottom: 45%;
   color: gray;
   font-size: 50px;
   @media (max-width: 750px){
@@ -48,7 +40,7 @@ const Right = styled.i`
 const Left = styled.i`
   position: absolute;
   left: 15px;
-  top: 50%;
+  bottom: 45%;
   color: grey;
   font-size: 50px;
   @media (max-width: 750px){
@@ -67,7 +59,10 @@ const Iframe = styled.iframe`
       height:450px;
   }
   @media (max-width: 750px){
-      height:350px;
+      height: 300px;
+  }
+  @media (max-width: 500px){
+      height: 200px;
   }
 `;
 
@@ -132,12 +127,13 @@ class Carousel extends Component {
         <Left onClick={this.previousSlide} className="fas fa-caret-left" />
 
         {this.props.showGallery ? (
-            <Slider src={this.props.slides[this.state.currentImageIndex]} />
+            <><h1><b>Photo Gallery</b></h1>
+            <Slider src={this.props.slides[this.state.currentImageIndex]} /></>
 
         ) : (
             <>
             <p>
-              <i className="far fa-hand-point-right" aria-hidden="true" />
+              <i className="far fa-bookmark" aria-hidden="true" />
               {this.props.src[this.state.currentImageIndex].about}
             </p>
             <Iframe

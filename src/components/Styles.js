@@ -9,6 +9,7 @@ height: 100vh;
 width: 100vw;
 display: flex;
 justify-content: center;
+color: white;
 
 span {
     font-size: 80px;
@@ -33,7 +34,7 @@ export const Section = styled.section`
     width: 100%;
     height: 100%;
     background-color:rgba(17, 17, 17, 0.842);
-    /* z-index: 1; */
+    color: white;
     padding: 105px;
     display: flex;
     align-items: center;

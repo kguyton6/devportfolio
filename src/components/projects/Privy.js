@@ -38,7 +38,7 @@ class Privy extends React.Component {
     videos: [
         {
          video: "https://www.youtube.com/embed/fO-7IRUwfPA",
-         about: "I'm showing here that the header responds differently, based off whether the user has a business or a client account."
+         about: "The header responds differently based off whether the user has a business or a client account."
         },
         {
          video: "https://www.youtube.com/embed/WaZ6fbn3IHU",
