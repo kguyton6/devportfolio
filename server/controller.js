@@ -19,11 +19,11 @@ module.exports = {
           from: `${email}`,
           to: `"Kim Guyton" <kimguyton@gmail.com>`,
           subject: `${subject} - Sent From Portfolio`,
-           html: `<p>${message}<br/>From ${name}</p>`
+           html: `<p>${message}<br/>From ${name}${email}</p>`
         }
         transporter.sendMail(mailOptions, (err, info) => {
           if (err) {
-            res.status(404).send('there was an error: ', err);
+            console.log('there was an error: ', err);
           } else {
             console.log('Message Sent: %s ', info.response)
           }

@@ -105,13 +105,13 @@ class Contact extends React.Component{
     toggleAlert = (e) => {
         e.preventDefault();
         this.setState({confirmation: true})
-        return this.sendMessage()
+
     }
     sendMessage = (e) => {
         const {email, name, subject, message} = this.state
         axios.post('/api/message', {email, name, subject, message})
         .then(() => {
-            this.setState({ message: '', name: '', email: '', subject: ''})
+            this.setState({confirmation: true, message: '', name: '', email: '', subject: ''})
         })
         .catch(err => console.log(err))
     }
@@ -134,7 +134,7 @@ class Contact extends React.Component{
                 <input required placeholder='Email' name='email'onChange={this.handleInput}/>
                 <input required placeholder='Subject' name='subject' onChange={this.handleInput}/>
                 <textarea required placeholder='Message' name='message' onChange={this.handleTextArea}/>
-                <input disabled={this.state.disabled} id='button' type='submit' style={{textIndent:'unset', textAlign:'center'}}onClick={this.toggleAlert}/>
+                <input disabled={this.state.disabled} id='button' type='submit' style={{textIndent:'unset', textAlign:'center'}}onClick={this.sendMessage}/>
             </Form>
             </Wrapper>
         )
