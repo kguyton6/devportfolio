@@ -77,10 +77,6 @@ class NavBar extends React.Component  {
 
   }
 
- componentDidMount = () => {
- 
-
- }
  
   showPanel = () => {
       return (

@@ -1,60 +1,54 @@
 import React from 'react'
 import Carousel from './Carousel'
-import styled from 'styled-components'
-import Button from '../Button';
+import ButtonToggle from './ButtonToggle';
+import {Container} from './ProjectStyles'
 
-const Container = styled.div `
-    width: 100%;
-    height: auto;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    center {
-        font-size: 36px;
-    }
-    p { font-size: 20px;width: 80%;  padding-bottom: 30px;}
-  .far {margin: 10px; font-size: 26px;}
-  /* .arrow {display: none;} */
-  @media (max-width: 750px){
-    p, .far {font-size: 14px;}
-    .arrow {display: inline; margin: 5px; cursor: pointer;}
-  }
-  
-`
 
 
 class Privy extends React.Component {
    state = {
     slides: [
-        'https://s3.us-east-2.amazonaws.com/kims-portfolio/privyhome.png',
-        'https://s3.us-east-2.amazonaws.com/kims-portfolio/privyhome2.png',
-        'https://s3.us-east-2.amazonaws.com/kims-portfolio/business.png',
-        'https://s3.us-east-2.amazonaws.com/kims-portfolio/business2.png',
-        'https://s3.us-east-2.amazonaws.com/kims-portfolio/searchresults.png',
-        'https://s3.us-east-2.amazonaws.com/kims-portfolio/privylogin.png',
+        {
+         slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/privyhome.png',
+         title: 'Landing Page 1 of 2'
+        },
+        {
+         slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/privyhome2.png',
+         title: 'Landing Page 2 of 2'
+        },
+        {
+         slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/business.png',
+         title: 'Business Page 1 of 2'
+        },
+        {
+         slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/business2.png',
+         title: 'Business Page 2 of 2'
+        },
+        {
+        slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/searchresults.png',
+        title: 'Search Results'
+        },
+        {
+         slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/privylogin.png',
+         title: 'Login Modal'
+        }
 ],
     videos: [
         {
-         video: "https://www.youtube.com/embed/fO-7IRUwfPA",
-         about: "The header responds differently based off whether the user has a business or a client account."
+         slide: "https://www.youtube.com/embed/fO-7IRUwfPA",
+         title: "The header responds differently based off whether the user has a business or a client account."
         },
         {
-         video: "https://www.youtube.com/embed/WaZ6fbn3IHU",
-         about: "This clip demonstrates the ability to book an appointment and the use of Stripe to secure the slot."
+         slide: "https://www.youtube.com/embed/WaZ6fbn3IHU",
+         title: "This clip demonstrates the ability to book an appointment and the use of Stripe to secure the slot."
         },
          {
-         video: "https://www.youtube.com/embed/wzGWV-MzeqU",
-         about: 'This is the Business landing view, the user can create a business account through this page.'
+         slide: "https://www.youtube.com/embed/wzGWV-MzeqU",
+         title: 'This is the Business landing view, the user can create a business account through this page.'
          },
          {
-            video: "https://www.youtube.com/embed/QuRSTLbj6FM",
-            about:''
-         },
-         {
-            video: "https://www.youtube.com/embed/DLymsFAUwyo",
-            about: ''
+            slide: "https://www.youtube.com/embed/DLymsFAUwyo",
+            title: 'The whole site is mobile responsive.'
         }
 
     ],
@@ -63,24 +57,20 @@ class Privy extends React.Component {
 
 
    }
-  
+  toggle = () => {
+    this.setState(prevState => {
+        return { showGallery: !prevState.showGallery}
+    })
+  }
 
   render() {
    const {showGallery, slides, videos} = this.state
-
+    let slide = showGallery ? slides : videos
       return ( 
           <Container>
-              <div style={{display: 'flex', padding: '30px', marginBottom: '20px'}}>
-                 <Button 
-                 disabled={this.state.showGallery}
-                 name='Photo Gallery'
-                 onClick={() => this.setState({showGallery: !showGallery })}/>
-                    <Button disabled={!this.state.showGallery} 
-                    name="Video Demo's"
-                  onClick={() => this.setState({showGallery: !showGallery })}/>
-                 </div>
+              <ButtonToggle toggle={this.toggle} disabled={showGallery}/>
                 
-                <Carousel showGallery={showGallery} slides={slides} src={videos}/>
+                <Carousel disabled={showGallery} slides={slide} />
     
                 </Container>
 

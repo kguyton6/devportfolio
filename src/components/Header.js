@@ -111,7 +111,11 @@ class Header extends React.Component {
 
     <StyledHeader {...this.props} >
       <div>
-        <Link to='/'><span>{this.props.swap? this.state.sub : this.props.title}</span></Link>
+      { this.props.swap ?
+        <Link to='/projects'><span>{ this.state.sub }</span></Link>
+        :
+        <Link to='/'><span>{ this.state.title }</span></Link>
+      }
         <Link to='/contact'>  <Button name='Get in Touch'/> </Link>
         <Menu src={menu} alt='menu' onClick={this.toggleMenu}/>
          </div>

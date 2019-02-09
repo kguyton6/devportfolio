@@ -1,46 +1,61 @@
 import React from 'react'
-import { Wrapper } from '../Styles';
-import login from '../../assets/login.png'
-import calendarMovie from '../../assets/Calendar.mov'
-import styled from 'styled-components'
-import calendar from '../../assets/calendar.png'
-const Img = styled.img`
-margin: 3%;
-    width: 800px;
-    height: 400px;
+import ButtonToggle from './ButtonToggle';
+import { Container } from './ProjectStyles';
+import Carousel from './Carousel';
 
-`
-const ChevronRight = styled.i`
-    font-size: 40px;
 
-`
 
 class Roadmap extends React.Component {
     state = {
-        nextPhoto: false
+        showGallery: true,
+        slides: [
+            {
+                slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/login.png',
+                title: 'Login Modal'
+            },
+        
+            {
+                slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/IMG_5494.png',
+                title: 'Dashboard'
+            },
+            {
+                slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/appointmentmodal.png',
+                title: 'Appointment Modal'  
+
+            },
+            {
+                slide: 'https://s3.us-east-2.amazonaws.com/kims-portfolio/IMG_5493.png',
+                title: 'Static Resource Page'
+            },
+         
+        ],
+        videos: [
+            {
+                slide: "https://www.youtube.com/embed/3gZxFGsIaas",
+                title: 'Calendar and Appointment Modal'
+            }
+        ]
+
     }
-    togglePhotos = () => {
+ 
+    
+    toggle = () => {
         this.setState(prevState => {
-            return { nextPhoto: !prevState.nextPhoto }
+            return { showGallery: !prevState.showGallery}
         })
-    }
-    showImage = () => {
-        if(this.state.nextPhoto){
-            return  <Img src={calendar} alt='' />
-        } else {
-            return  <Img src={login} alt='' />
-        }
     }
 
     render(){
+        var {videos, slides, showGallery} = this.state
+        let slide = showGallery ? slides : videos
     return (
-        <Wrapper>
-            <h1>Roadmap</h1>
+        <Container>
+            <ButtonToggle disabled={this.state.showGallery} toggle={this.toggle} />
 
-         
+         <Carousel disabled={showGallery} slides={slide} />
 
           
-        </Wrapper>
+        </Container>
     )
 }
 }

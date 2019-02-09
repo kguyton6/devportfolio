@@ -1,70 +1,8 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import Frame from './Frame'
+import {Left, Right, Card } from './ProjectStyles'
 
 
-
-const Slider = styled.img`
-  height: auto;
-  width: 80%;
-  
-`;
-
-
-const Card = styled.article`
-        width: 90%;
-        height: auto;
-        box-sizing: border-box;
-        padding: 30px 5px 15px 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: white;
-        position: relative;
-    h1 {font-weight: bold;}
-`
-
-const Right = styled.i`
-  position: absolute;
-  right: 15px;
-  bottom: 45%;
-  color: gray;
-  font-size: 50px;
-  @media (max-width: 750px){
-   font-size: 30px;
-  }
-  @media (max-width: 500px){
-    font-size: 20px;
-    right: 5px;
-  }
-`;
-const Left = styled.i`
-  position: absolute;
-  left: 15px;
-  bottom: 45%;
-  color: grey;
-  font-size: 50px;
-  @media (max-width: 750px){
-    font-size: 30px;
-  }
-  @media (max-width: 500px){
-    font-size: 20px;
-    left: 5px;
-  }
-
-`;
-const Iframe = styled.iframe`
-  width: 90%;
-  height: 600px;
-  @media (max-width: 900px){
-      height:450px;
-  }
-  @media (max-width: 750px){
-      height: 300px;
-  }
-  @media (max-width: 500px){
-      height: 200px;
-  }
-`;
 
 class Carousel extends Component {
   state = {
@@ -75,7 +13,8 @@ class Carousel extends Component {
   };
 
   previousSlide = () => {
-    const lastIndex = this.props.slides.length - 1;
+    const {slides} = this.props 
+    const lastIndex = slides.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === 0;
     const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
@@ -87,7 +26,8 @@ class Carousel extends Component {
   };
 
   nextSlide = () => {
-    const lastIndex = this.props.slides.length - 1;
+        const {slides} = this.props   
+    const lastIndex = slides.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
     const index = shouldResetIndex ? 0 : currentImageIndex + 1;
@@ -114,41 +54,27 @@ class Carousel extends Component {
   };
 
   render() {
-    console.log(this.props);
+      var heading = {
+        textAlign: 'left', 
+        color: 'grey',
+        paddingBottom: '20px',
+        width: '95%'
+      }
+      const {slide, title} = this.props.slides[this.state.currentImageIndex]
+
     return (
       <Card>
-      {/* <div>
-      <i 
-      onClick={this.previousSlide}
-      className="fas fa-caret-square-left arrow"></i>
-      <i onClick={this.nextSlide}  className="fas fa-caret-square-right arrow"></i>
-      </div> */}
         {/* {this.intervalTimer()} */}
         <Left onClick={this.previousSlide} className="fas fa-caret-left" />
-
-        {this.props.showGallery ? (
-            <><h1><b>Photo Gallery</b></h1>
-            <Slider src={this.props.slides[this.state.currentImageIndex]} /></>
-
-        ) : (
-            <>
-            <p>
-              <i className="far fa-bookmark" aria-hidden="true" />
-              {this.props.src[this.state.currentImageIndex].about}
-            </p>
-            <Iframe
-              src={this.props.src[this.state.currentImageIndex].video}
-              frameborder="2"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-         </>
-        )}
-
+            <p style={heading}>
+              <i className="fas fa-tag" aria-hidden="true" />
+              {title}
+           </p>
+           <Frame
+             src={slide} disabled={this.props.disabled }/>
         <Right onClick={this.nextSlide} className="fas fa-caret-right" />
         </Card>
-
-    );
+    )
   }
 }
 

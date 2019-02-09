@@ -10,6 +10,7 @@ const StyledFooter = styled.footer`
     height: 130px;
     padding:20px;
     width: 100%;
+    color: white;
     justify-content: space-between;
     nav {
         display: flex;

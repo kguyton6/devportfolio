@@ -5,6 +5,7 @@ import {withRouter} from 'react-router'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import Modal from './Modal';
+
 const Button = styled.button `
     background-color: lightblue;
     width: 130px;
@@ -20,6 +21,7 @@ align-items: center;
 justify-content: space-evenly;
 box-sizing: border-box;
 position: relative;
+color: white;
     input, textarea {
         border: white solid thin;
         background-color: transparent;

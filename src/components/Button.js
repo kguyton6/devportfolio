@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-import DropDown from './DropDown';
+
 //Button
 
 const StyledButton = styled.button`
@@ -28,25 +27,17 @@ position: relative;
 }
 `
 
-const Menu = styled.div`
-    width: 60px;
-    height: 100px;
-    background-color: white;
-    z-index: 1;
-`
 
-class Button extends React.Component {
+
+const Button = (props) => {
  
-    render(){
-        console.log(this.props)
-        const {disabled, children} = this.props
+
+        const { disabled, name } = props
     return (
        
-          <StyledButton backgroundColor={disabled? 'white' : 'black'} color={disabled ? 'black' : 'white'} {...this.props} id='button' >{this.props.name}
+          <StyledButton backgroundColor={disabled? 'white' : 'black'} color={disabled ? 'black' : 'white'} {...props} id='button' >{name}
           </StyledButton>   
     )
-  }
-
 }
 
 export default Button

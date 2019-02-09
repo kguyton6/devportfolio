@@ -18,7 +18,7 @@ const Landing = () => {
 export default Landing
 
 
-export const WelcomeBanner = (props) => {
+const WelcomeBanner = (props) => {
     return (
     <Section>
     <h1>Kimberly Guyton</h1>
