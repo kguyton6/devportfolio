@@ -65,16 +65,16 @@ class Carousel extends Component {
       const {slide, title} = this.props.slides[this.state.currentImageIndex]
 
     return (
-      <Card>
+      <Card onTouchStart={this.nextSlide}>
         {/* {this.intervalTimer()} */}
-        <Left onTouchStart={this.previousSlide} onClick={this.previousSlide} className="fas fa-caret-left" />
+        <Left  onClick={this.previousSlide} className="fas fa-caret-left" />
             <p style={heading}>
               <i className="fas fa-tag" aria-hidden="true" />
               {title}
            </p>
            <Frame
              src={slide} disabled={this.props.disabled }/>
-        <Right onTouchStart={this.nextSlide} onClick={this.nextSlide} className="fas fa-caret-right" />
+        <Right onClick={this.nextSlide} className="fas fa-caret-right" />
         </Card>
     )
   }
