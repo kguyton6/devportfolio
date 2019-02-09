@@ -12,6 +12,7 @@
 # production
 /build
 .env
+.env.prod
 
 
 # misc
