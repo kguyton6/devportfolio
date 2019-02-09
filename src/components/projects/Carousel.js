@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Frame from './Frame'
 import {Left, Right, Card } from './ProjectStyles'
+import $ from 'jquery'; 
 
 
 
@@ -24,7 +25,7 @@ class Carousel extends Component {
       autoSlide: false
     });
   };
-
+  
   nextSlide = () => {
         const {slides} = this.props   
     const lastIndex = slides.length - 1;
@@ -36,6 +37,7 @@ class Carousel extends Component {
       currentImageIndex: index,
       autoSlide: false
     });
+
   };
   intervalTimer = () => {
     if (this.state.autoSlide) {
@@ -65,14 +67,14 @@ class Carousel extends Component {
     return (
       <Card>
         {/* {this.intervalTimer()} */}
-        <Left onClick={this.previousSlide} className="fas fa-caret-left" />
+        <Left onTouchStart={this.previousSlide} onClick={this.previousSlide} className="fas fa-caret-left" />
             <p style={heading}>
               <i className="fas fa-tag" aria-hidden="true" />
               {title}
            </p>
            <Frame
              src={slide} disabled={this.props.disabled }/>
-        <Right onClick={this.nextSlide} className="fas fa-caret-right" />
+        <Right onTouchStart={this.nextSlide} onClick={this.nextSlide} className="fas fa-caret-right" />
         </Card>
     )
   }

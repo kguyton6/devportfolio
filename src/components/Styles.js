@@ -104,9 +104,9 @@ export const Wrapper = styled.div`
         margin-bottom: 3%;
         animation: slide 1s ease forwards;
     }
-    button {
+    /* button {
         animation: slide 2s ease forwards;
-    }
+    } */
     
     @keyframes slide {
         0% {transform: translateY(900px);}

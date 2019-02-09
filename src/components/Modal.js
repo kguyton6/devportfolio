@@ -17,6 +17,7 @@ const ModalWrapper = styled.div`
   align-items: center;
   justify-content: space-evenly;
   animation: leftslide .5s ease forwards;
+  z-index: 10;
 
   @keyframes leftslide {
     0% {left: 0%;}
@@ -50,9 +51,9 @@ const ModalWrapper = styled.div`
 
 `
 const Modal = props => {
+  console.log(props.children)
     return (
             <ModalWrapper {...props}>   
-            <span style={{color: 'black', fontWeight: 'bold'}}> Thank you! </span>
             {props.children}
             </ModalWrapper>
 

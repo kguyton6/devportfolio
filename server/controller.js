@@ -1,17 +1,16 @@
 require('dotenv').config()
 const nodemailer = require('nodemailer')
 
-
 module.exports = {
     send_message: (req, res, next) => {
         const { message, name, email, subject } = req.body
-        const {MYEMAIL, MYPASSWORD} = process.env
+       
     
         const transporter = nodemailer.createTransport({
            service: 'gmail',
         auth: {
-            user: MYEMAIL,
-            pass: MYPASSWORD
+            user: process.env.MYEMAIL,
+            pass: process.env.MYPASSWORD
           }
         })
 
