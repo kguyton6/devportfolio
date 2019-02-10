@@ -1,6 +1,6 @@
 require("dotenv").config();
 const nodemailer = require("nodemailer");
-const xoauth2 = require("xoauth2");
+
 
 module.exports = {
   send_message: (req, res, next) => {
