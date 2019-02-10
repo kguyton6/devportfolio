@@ -65,7 +65,7 @@ class Carousel extends Component {
       const {slide, title} = this.props.slides[this.state.currentImageIndex]
 
     return (
-      <Card onTouchStart={this.nextSlide}>
+      <Card onTouchStart={this.nextSlide} onS>
         {/* {this.intervalTimer()} */}
         <Left  onClick={this.previousSlide} className="fas fa-caret-left" />
             <p style={heading}>
