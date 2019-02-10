@@ -1,6 +1,6 @@
 require("dotenv").config();
 const nodemailer = require("nodemailer");
-const xoauth2 = require("xoauth2");
+
 
 module.exports = {
   send_message: (req, res, next) => {
@@ -17,10 +17,10 @@ module.exports = {
       }
     });
     let mailOptions = {
-      from: email,
+      from: process.env.MYEMAIL,
       to: process.env.MYEMAIL,
       subject: subject,
-      text: `${message} from ${name}`
+      text: `${message} from ${name}${email}`
     };
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
