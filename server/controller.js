@@ -5,9 +5,6 @@ const nodemailer = require("nodemailer");
 module.exports = {
   send_message: (req, res, next) => {
     const { message, name, email, subject } = req.body;
-      var name = name
-      var email = email
-      var message = message
       var content = `name: ${name} \n email: ${email} \n message: ${message} `
     
       var mail = {
