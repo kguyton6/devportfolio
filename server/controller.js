@@ -5,28 +5,37 @@ const nodemailer = require("nodemailer");
 module.exports = {
   send_message: (req, res, next) => {
     const { message, name, email, subject } = req.body;
-
+      var name = name
+      var email = email
+      var message = message
+      var content = `name: ${name} \n email: ${email} \n message: ${message} `
+    
+      var mail = {
+        from: name,
+        to: process.env.MYEMAIL,  //Change to email address that you want to receive messages on
+        subject: `${subject} from Contact Form`,
+        text: content
+      }
+  
     let transporter = nodemailer.createTransport({
       service: `gmail`,
       host: `smtp.gmail.com`,
-      secure: false,
-      port: `465`,
+      port: 993,
       auth: {
         user: process.env.MYEMAIL, 
         pass: process.env.MYPASSWORD
       }
     });
-    let mailOptions = {
-      from: process.env.MYEMAIL,
-      to: process.env.MYEMAIL,
-      subject: subject,
-      text: `${message} from ${name}${email}`
-    };
-    transporter.sendMail(mailOptions, (err, info) => {
+ 
+    transporter.sendMail(mail, (err, data) => {
       if (err) {
-        console.log("there was an error: ", err);
+        res.json({
+          msg: 'fail'
+        })
       } else {
-        console.log("Message Sent: %s ", info.response);
+        res.json({
+          msg: 'success'
+        })
       }
       next();
     });

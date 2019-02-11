@@ -128,24 +128,20 @@ class Contact extends React.Component {
   toggle = () => {
     return this.props.history.push("/");
   };
-  renderAlert = () => {
-
-      return this.state.alert ? (
-        <Modal>
-          <span style={{ color: "black", fontWeight: "bold" }}>
-            {" "}
-            Thank you!{" "}
-          </span>
-          <Button onClick={this.toggle}>Ok</Button>
-        </Modal>
-      ) : ( null )
-    
-  };
+ 
 
   render() {
-    return (
+    return this.state.alert ? (
+
+        <Modal>
+        <span style={{ color: "black", fontWeight: "bold" }}>
+          {" "}
+          Thank you!{" "}
+        </span>
+        <Button onClick={this.toggle}>Ok</Button>
+      </Modal>
+    ) : (
       <Wrapper>
-        {this.renderAlert()}
         <Form onSubmit={this.toggleAlert}>
           <h3>Get in Touch</h3>
           <address>kimguyton@gmail.com</address>

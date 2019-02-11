@@ -4,11 +4,11 @@ const app = express()
 const bodyParser = require('body-parser')
 const ctrl = require('./controller')
 const {SERVER_PORT, DOMAIN} = process.env
-
-
+const path = require('path');
 
 app.use(bodyParser.json())
-  
+app.use( express.static(path.join(__dirname, 'build'))) 
+
 app.post(`/api/message`, ctrl.send_message, ((req, res) => {
    res.status(200).send('Confirmation')
 })) 
@@ -16,6 +16,5 @@ app.post(`/api/message`, ctrl.send_message, ((req, res) => {
 
 const Port = SERVER_PORT || 5000
 
-app.use( express.static( `${__dirname}/../build`)) 
 
 app.listen(Port, () => {console.log(`Server is listening on ${SERVER_PORT}`)})
