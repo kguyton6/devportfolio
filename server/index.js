@@ -9,7 +9,7 @@ const path = require('path');
 app.use(bodyParser.json())
 app.use( express.static(path.join(__dirname, 'build'))) 
 
-app.post(`/api/message`, ctrl.send_message, ((req, res) => {
+app.post(`${DOMAIN}/api/message`, ctrl.send_message, ((req, res) => {
    res.status(200).send('Confirmation')
 })) 
   
