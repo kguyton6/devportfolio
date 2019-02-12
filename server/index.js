@@ -3,13 +3,13 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const ctrl = require('./controller')
-const {SERVER_PORT, DOMAIN} = process.env
+const {SERVER_PORT } = process.env
 const path = require('path');
 
 app.use(bodyParser.json())
-app.use( express.static(path.join(__dirname, 'build'))) 
+app.use(express.static( `${__dirname}/../build` ) );
 
-app.post(`${DOMAIN}/api/message`, ctrl.send_message, ((req, res) => {
+app.post(`/api/message`, ctrl.send_message, ((req, res) => {
    res.status(200).send('Confirmation')
 })) 
   
