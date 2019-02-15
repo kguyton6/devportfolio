@@ -111,10 +111,10 @@ class Contact extends React.Component {
     return this.sendMessage()
   };
   sendMessage = e => {
-    // const { email, name, subject, message } = this.state;
-    // axios
-      // .post("/api/message", { email, name, subject, message })
-      // .then(() => {
+    const { email, name, subject, message } = this.state;
+    axios
+      .post("/api/message", { email, name, subject, message })
+      .then(() => {
         this.setState({
           alert: true,
           message: "",
@@ -122,8 +122,8 @@ class Contact extends React.Component {
           _replyto: '',
           subject: ""
         });
-      // })
-      // .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   };
   toggle = () => {
     return this.props.history.push("/");
