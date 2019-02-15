@@ -92,7 +92,7 @@ const appRoot = document.getElementById("root");
 class Contact extends React.Component {
   state = {
     name: "",
-    email: "",
+    _replyto: "",
     subject: "",
     message: "",
     alert: false,
@@ -111,19 +111,19 @@ class Contact extends React.Component {
     return this.sendMessage()
   };
   sendMessage = e => {
-    const { email, name, subject, message } = this.state;
-    axios
-      .post("/api/message", { email, name, subject, message })
-      .then(() => {
+    // const { email, name, subject, message } = this.state;
+    // axios
+      // .post("/api/message", { email, name, subject, message })
+      // .then(() => {
         this.setState({
           alert: true,
           message: "",
           name: "",
-          email: "",
+          _replyto: '',
           subject: ""
         });
-      })
-      .catch(err => console.log(err));
+      // })
+      // .catch(err => console.log(err));
   };
   toggle = () => {
     return this.props.history.push("/");
@@ -131,6 +131,9 @@ class Contact extends React.Component {
  
 
   render() {
+    function send(){
+      return this.toggleAlert()
+    }
     return this.state.alert ? (
 
         <Modal>
@@ -142,20 +145,23 @@ class Contact extends React.Component {
       </Modal>
     ) : (
       <Wrapper>
-        <Form onSubmit={this.toggleAlert}>
+        <Form onSubmit={send}
+        action="https://formspree.io/kimguyton@gmail.com" method="POST">
           <h3>Get in Touch</h3>
           <address>kimguyton@gmail.com</address>
           <a href="tel:+14356691797">435-669-1797</a>
           <input
+            type='text'
             required
             placeholder="Name"
             name="name"
             onChange={this.handleInput}
           />
           <input
+           type='email'
             required
             placeholder="Email"
-            name="email"
+            name="_replyto"
             onChange={this.handleInput}
           />
           <input
@@ -165,6 +171,7 @@ class Contact extends React.Component {
             onChange={this.handleInput}
           />
           <textarea
+            type='text'
             required
             placeholder="Message"
             name="message"
@@ -174,8 +181,9 @@ class Contact extends React.Component {
             disabled={this.state.disabled}
             id="button"
             type="submit"
+            value='Send'
             style={{ textIndent: "unset", textAlign: "center" }}
-            onClick={this.toggleAlert}
+            onClick={send}
           />
         </Form>
 

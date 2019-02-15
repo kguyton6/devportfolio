@@ -34,7 +34,6 @@ module.exports = {
           msg: 'success'
         })
       }
-      next();
     });
   }
 };
