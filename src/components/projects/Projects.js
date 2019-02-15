@@ -5,12 +5,25 @@ import helo from '../../assets/helohome.png'
 import privy from '../../assets/privyhome.png'
 import roadmap from '../../assets/roadmap.png'
 import {Img, ProjectContainer} from './ProjectStyles'
+import jane from '../../assets/jane.png'
 
 class Projects extends React.Component {
+  
   render() {
     return (
         <ProjectContainer>
-          <h1>Full Stack React Applications</h1>
+          <h1>React Applications</h1>
+          <div className='project-preview' style={{flexDirection: 'row-reverse'}} >
+        <Img src={jane} alt='preview' width='50%' height='550px' />
+        <aside>
+        <h3>Jane.com</h3>
+     <h4>Homepage Clone</h4>
+ <p>  
+   Here I am showcasing my design skills and the ability to create anything handed to me. I used only CSS in JS for styling. I also created the logo and promo banner from scratch.  <br/> 
+
+</p>
+      </aside>
+      </div>
         <div className='project-preview'>
         <Img src={helo} alt='preview'/>
         <aside>
