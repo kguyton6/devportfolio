@@ -30,8 +30,8 @@ const Footer = () => {
     return (
         <StyledFooter>
             <address>
-            <span>kimguyton@gmail.com<br/>
-            435-669-1797</span>
+            <a href="mailto:kimguyton@gmail.com.com">kimguyton@gmail.com</a> <br/>
+            <a href="tel:+14356691797">435-669-1797</a>
             </address>
             <nav>
            <a href='https://twitter.com/Kguyton6'><i className='fab fa-twitter'></i></a> 
