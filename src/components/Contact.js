@@ -111,9 +111,9 @@ class Contact extends React.Component {
     return this.sendMessage()
   };
   sendMessage = e => {
-    const { email, name, subject, message } = this.state;
+    const { _replyto, name, subject, message } = this.state;
     axios
-      .post("/api/message", { email, name, subject, message })
+      .post("/api/message", { _replyto, name, subject, message })
       .then(() => {
         this.setState({
           alert: true,
@@ -146,7 +146,7 @@ class Contact extends React.Component {
     ) : (
       <Wrapper>
         <Form onSubmit={send}
-        action="https://formspree.io/kimguyton@gmail.com" method="POST">
+         action="https://formspree.io/kimguyton@gmail.com" method="POST">
           <h3>Get in Touch</h3>
           <address>kimguyton@gmail.com</address>
           <a href="tel:+14356691797">435-669-1797</a>
