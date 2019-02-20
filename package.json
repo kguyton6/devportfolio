@@ -39,6 +39,7 @@
     "start": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
     "start:dev": "nodenv -f .",
     "start:prod": "node .",
+    "build":"npm run build",
     "dev": "nodenv .",
     "test": "nodenv -E test/.env test/test.js"
   },
