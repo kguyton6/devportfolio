@@ -146,7 +146,8 @@ class Contact extends React.Component {
     ) : (
       <Wrapper>
         <Form onSubmit={send}
-         action="https://formspree.io/kimguyton@gmail.com" method="POST">
+//          action="https://formspree.io/kimguyton@gmail.com" 
+          method="POST">
           <h3>Get in Touch</h3>
        
           <input
