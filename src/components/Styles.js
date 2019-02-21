@@ -89,6 +89,7 @@ export const Wrapper = styled.div`
         line-height: 43px;
         font-family: 'Raleway', sans-serif;
         animation: slide-reverse 2s ease forwards;
+        color: white;
     }
     img {
         max-width: 400px;
