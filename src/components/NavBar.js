@@ -23,15 +23,16 @@ const Nav = styled.nav`
   justify-content: space-between;
   transition: ${props => props.transition};
   @media (max-width: 1250px) {
-    width: 33%;
+    width: 30%;
   }
   @media (min-width: 750px) and (max-width: 900px) {
+
     a {
       font-size: 12px;
     }
   }
   @media (max-width: 900px) {
-    width: 50%;
+    width: 35%;
     /* a {font-size: 14px;} */
   }
   @media (max-width: 600px) {

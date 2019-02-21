@@ -48,7 +48,7 @@ const StyledHeader = styled.header`
   }
   @media (max-width: 1250px) {
     legend {
-      width: 28%;
+      width: 33%;
     }
   }
   @media (max-width: 900px) {
@@ -63,14 +63,17 @@ const StyledHeader = styled.header`
       display: none;
     }
     legend {
-      width: 15%;
+      width: 20%;
     }
+    .email {display: none;}
   }
   @media (max-width: 600px) {
+
     button {
       display: none;
     }
     legend {
+      width: 20%;
       position: absolute;
       top: 100px;
     }
@@ -136,15 +139,15 @@ class Header extends React.Component {
         <div>
           <NavBar swapLinks={this.props.swapLinks} swap={this.props.swap} />
           <legend>
-            <address>kimguyton@gmail.com</address>
-            <a href="https://twitter.com/Kguyton6">
+            <a href='mailto:kimguyton@gmail.com' className='email'>kimguyton@gmail.com</a>
+            <a href="https://twitter.com/Kguyton6" target='_blank'>
               <i className="fab fa-twitter" />
             </a>
-            <a href="https://www.linkedin.com/in/kimberly-guyton/">
+            <a href="https://www.linkedin.com/in/kimberly-guyton/" target='_blank'>
               {" "}
               <i className="fab fa-linkedin-in" aria-hidden="true" />
             </a>
-            <a href="https://github.com/kguyton6">
+            <a href="https://github.com/kguyton6" target='_blank'>
               {" "}
               <i className="fab fa-github" />
             </a>

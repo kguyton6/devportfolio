@@ -34,9 +34,9 @@ const Footer = () => {
             <a href="tel:+14356691797">435-669-1797</a>
             </address>
             <nav>
-           <a href='https://twitter.com/Kguyton6'><i className='fab fa-twitter'></i></a> 
-           <a href='https://www.linkedin.com/in/kimberly-guyton/'><i className='fab fa-linkedin'></i></a> 
-           <a href='https://github.com/kguyton6'><i className='fab fa-github'></i></a> 
+           <a href='https://twitter.com/Kguyton6' target='_blank'><i className='fab fa-twitter'></i></a> 
+           <a href='https://www.linkedin.com/in/kimberly-guyton/' target='_blank'><i className='fab fa-linkedin'></i></a> 
+           <a href='https://github.com/kguyton6' target='_blank'><i className='fab fa-github'></i></a> 
            </nav>
         </StyledFooter>
     )

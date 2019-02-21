@@ -4,30 +4,20 @@ import { Link } from "react-router-dom";
 import helo from '../../assets/helohome.png'
 import privy from '../../assets/privyhome.png'
 import roadmap from '../../assets/roadmap.png'
-import {Img, ProjectContainer} from './ProjectStyles'
-import jane from '../../assets/jane.png'
+import {Img, ProjectContainer, Title} from './ProjectStyles'
+
 
 class Projects extends React.Component {
   
   render() {
     return (
         <ProjectContainer>
-          <h1>React Applications</h1>
-          <div className='project-preview' style={{flexDirection: 'row-reverse'}} >
-        <Img src={jane} alt='preview' width='50%' height='550px' />
-        <aside>
-        <h3>Jane.com</h3>
-     <h4>Homepage Clone</h4>
- <p>  
-   Here I am showcasing my design skills and the ability to create anything handed to me. I used only CSS in JS for styling. I also created the logo and promo banner from scratch.  <br/> 
-
-</p>
-      </aside>
-      </div>
+          <Title>React Applications</Title>
+        
         <div className='project-preview'>
         <Img src={helo} alt='preview'/>
         <aside>
-        <h3>Helo</h3>
+        <a href='https://github.com/kguyton6/helo' target='_blank'>Helo</a>
      <h4>Social Network</h4>
  <p>Simple application demonstrates filtering and sorting arrays, as well as my ability to work with PostgreSQL and select from multiple tables.  
  Along with Postgres, I used Node with Express, Auth0 for authentication, Redux and CSS.    
@@ -40,7 +30,7 @@ class Projects extends React.Component {
       <div className='project-preview' id='priv'>
         <Img src={privy} alt='preview'/>
         <aside>
-        <h3>PrivyChic</h3>
+        <a href='https://www.privychic.com' target='_blank'>PrivyChic</a>
      <h4>Hair Stylist Locater</h4>
  <p>  
 
@@ -57,7 +47,7 @@ The application uses the Stripe API, Bcrypt for authentication, Nodemailer for a
       <div className='project-preview' >
         <Img src={roadmap} alt='preview'/>
         <aside>
-        <h3>Roadmap</h3>
+        <a href='https://dev-roadmap.info' target='_blank'>Roadmap</a>
      <h4>Success Roadmap for Dev Grads</h4>
  <p>  
 This site is designed for Dev Mountain graduates to aid them towards a successful career as a developer. <br/> 

@@ -1,5 +1,16 @@
 import styled from 'styled-components'
 
+export const Title = styled.a`
+  text-align: center;
+  width: auto;
+  height: auto;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: ${props => props.marginBottom || '50px'};
+  @media (max-width: 750px){
+    font-size: 28px;
+  }
+`
 export const Container = styled.div `
     width: 100vw;
     height: auto;
@@ -82,6 +93,7 @@ export const ProjectContainer = styled.main`
     display: flex;
     flex-direction: column;
     color: white;
+    padding-top: 20px;
     h1, h2 {text-align: center; margin: 20px;}
     h1 {font-size: 30px; }
     h2 {font-size: 20px;}
@@ -96,7 +108,7 @@ export const ProjectContainer = styled.main`
       display: flex;
       flex-direction: column;
       width: 60%;
-      padding: 3%;
+      padding: 0 10px 15px 10px;
       text-align: center;
       justify-content: space-evenly;
       height: auto;
@@ -104,24 +116,25 @@ export const ProjectContainer = styled.main`
     }
     #priv {flex-direction: row-reverse;}
     p {margin: 5%; line-height: 26px;}
-    aside h3 { font-size: 24px; }
+    aside a { font-size: 24px; }
     aside h4 { font-size: 18px; }
-    h3, h4 {line-height: 30px;}
+    a, h4 {line-height: 30px;}
     p h5 {margin: 5%;}
-
+    a:hover {font-size: 30px;}
     @media (max-width: 900px){
       h4, h5 {display: none;}
-      aside {width: 80%;}
+      aside {width: 100%; margin-bottom: 10px;}
       .project-preview {
         flex-direction: column-reverse;
         height: auto;
         align-items: center;
       }
-      h3 {line-height: 20px;}
+      a {line-height: 20px;}
       #priv {flex-direction: column-reverse;}
       h2 {margin: 10px;}
     }
     @media(max-width: 600px){
      h1 { font-size: 25px}
+     aside {margin-bottom: 15px;}
     }
 `

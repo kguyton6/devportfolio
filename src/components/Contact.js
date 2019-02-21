@@ -44,7 +44,7 @@ const Form = styled.form`
   }
   input {
     height: 40px;
-    /* margin: 3px; */
+
   }
 
   h3 {
@@ -87,7 +87,7 @@ const Form = styled.form`
     }
   }
 `;
-const appRoot = document.getElementById("root");
+
 
 class Contact extends React.Component {
   state = {
@@ -148,8 +148,7 @@ class Contact extends React.Component {
         <Form onSubmit={send}
          action="https://formspree.io/kimguyton@gmail.com" method="POST">
           <h3>Get in Touch</h3>
-          <address>kimguyton@gmail.com</address>
-          <a href="tel:+14356691797">435-669-1797</a>
+       
           <input
             type='text'
             required
@@ -182,7 +181,7 @@ class Contact extends React.Component {
             id="button"
             type="submit"
             value='Send'
-            style={{ textIndent: "unset", textAlign: "center" }}
+            style={{ textIndent: "unset", textAlign: "center", cursor:'pointer' }}
             onClick={send}
           />
         </Form>
