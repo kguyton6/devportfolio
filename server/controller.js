@@ -3,14 +3,13 @@ const nodemailer = require("nodemailer");
 const { MYEMAIL, MYPASSWORD} = process.env
 
 module.exports = {
-  send_message: (req, res, next) => {
-    console.log('nodemailer')
+  send_message: (req, res) => {
     const { message, name, email, subject } = req.body;
       var content = `name: ${name} \n email: ${email} \n message: ${message} `
     
       var mailOptions = {
         from: name,
-        to: MYEMAIL,  //Change to email address that you want to receive messages on
+        to: MYEMAIL,  
         subject: `${subject} from Contact Form`,
         text: content
       }
@@ -25,15 +24,11 @@ module.exports = {
       }
     });
  
-    transporter.sendMail({mailOptions}, (err, data) => {
+    transporter.sendMail(mailOptions, (err, data) => {
       if (err) {
-        res.json({
-          msg: 'fail'
-        })
+       console.log(err)
       } else {
-        res.json({
-          msg: 'success'
-        })
+        console.log(data)
       }
     });
   }
