@@ -68,10 +68,10 @@ class Privy extends React.Component {
     let slide = showGallery ? slides : videos
       return ( 
           <Container>
-            <Title href='https://www.privychic.com'>PrivyChic</Title>
+          
               <ButtonToggle toggle={this.toggle} disabled={showGallery}/>
-                
-                <Carousel disabled={showGallery} slides={slide} />
+               
+                <Carousel link={'privychic.com'} disabled={showGallery} slides={slide} />
     
                 </Container>
 

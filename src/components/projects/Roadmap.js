@@ -49,10 +49,10 @@ class Roadmap extends React.Component {
         var {videos, slides, showGallery} = this.state
         let slide = showGallery ? slides : videos
     return (
-        <Container>
+        <Container >
             <ButtonToggle disabled={this.state.showGallery} toggle={this.toggle} />
 
-         <Carousel disabled={showGallery} slides={slide} />
+         <Carousel link={'dev-roadmap.info'} disabled={showGallery} slides={slide} />
 
           
         </Container>

@@ -8,9 +8,10 @@ const Helo = () => {
   
     return (
         <center>
-          <Card>
-            <label style={{textAlign: 'left', display:'flex', justifyContent: 'flex-end'}} >Helo
-            <a href='https://github.com/kguyton6/helo' ><i style={{color: 'gray', fontSize: '15px'}}className="fas fa-external-link-alt"></i></a>
+          <Card link={'helo'}>
+            <label style={{textAlign: 'left', display:'flex'}} >
+            <a href='https://github.com/kguyton6/helo' target='_blank' ><i style={{color: 'gray', marginRight: '10px'}}className="fab fa-github"></i></a>
+            Helo
             </label>
 
             <Frame src='https://www.youtube.com/embed/-QSCTjlrrJY' />

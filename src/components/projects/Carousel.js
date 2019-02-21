@@ -65,8 +65,8 @@ class Carousel extends Component {
       const {slide, title} = this.props.slides[this.state.currentImageIndex]
 
     return (
-      <Card onTouchStart={this.nextSlide} onS>
-        {/* {this.intervalTimer()} */}
+      <Card onTouchStart={this.nextSlide} {...this.props} >
+       <a href={`https://www.${this.props.link}`} target='_blank' style={{ color:'gray', position: 'absolute', right: '10px', top: '8px'}}>{this.props.link}<i className='fas fa-external-link-alt' style={{marginLeft: '5px'}}></i></a>
         <Left  onClick={this.previousSlide} className="fas fa-caret-left" />
             <p style={heading}>
               <i className="fas fa-tag" aria-hidden="true" />
