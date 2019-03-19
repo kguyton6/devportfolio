@@ -23,7 +23,7 @@ app.use(helmet())
 app.post(`/api/message`, ctrl.send_message) 
   
 
-const Port = SERVER_PORT || 5000
+const Port = SERVER_PORT || 4100
 
 
 app.listen(Port, () => {console.log(`Server is listening on ${SERVER_PORT}`)})
