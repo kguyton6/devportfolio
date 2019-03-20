@@ -108,13 +108,14 @@ class Contact extends React.Component {
   toggleAlert = e => {
     e.preventDefault();
     this.setState({ alert: true });
-    return this.sendMessage()
+
   };
   sendMessage = e => {
     const { _replyto, name, subject, message } = this.state;
     axios
       .post("/api/message", { _replyto, name, subject, message })
       .then(() => {
+       this.toggleAlert()
         this.setState({
           alert: true,
           message: "",
@@ -131,9 +132,7 @@ class Contact extends React.Component {
  
 
   render() {
-    function send(){
-      return this.toggleAlert()
-    }
+
     return this.state.alert ? (
 
         <Modal>
@@ -145,8 +144,8 @@ class Contact extends React.Component {
       </Modal>
     ) : (
       <Wrapper>
-        <Form onSubmit={send}
-         action="https://formspree.io/kimguyton@gmail.com" 
+        <Form onSubmit={this.sendMessage}
+         action="#" 
           method="POST">
           <h3>Get in Touch</h3>
           <input
