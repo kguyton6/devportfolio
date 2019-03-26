@@ -21,7 +21,7 @@ module.exports = {
     const messageOptions = {
       to: EMAIL,
       from: email,
-      subject: ${subject},
+      subject: subject,
       html: `<strong>
                   Contact Information: </strong> <br/>
                   Name: ${name} <br/>
