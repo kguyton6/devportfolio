@@ -9,7 +9,6 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const ctrl = require('./controller')
-var helmet = require('helmet');
 
 const {SERVER_PORT } = process.env
 
