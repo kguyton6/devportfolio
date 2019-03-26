@@ -20,7 +20,7 @@ app.use(helmet())
 
 
 
-app.post(`/api/message`, ctrl.send_message) 
+app.post(`/api/message`, ctrl.send_email, send_sms) 
   
 
 const Port = SERVER_PORT || 4100
