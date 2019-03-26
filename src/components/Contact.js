@@ -181,7 +181,7 @@ class Contact extends React.Component {
             type="submit"
             value='Send'
             style={{ textIndent: "unset", textAlign: "center", cursor:'pointer' }}
-            onClick={send}
+            onClick={this.sendMessage}
           />
         </Form>
 
