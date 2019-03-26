@@ -1,35 +1,56 @@
 require("dotenv").config();
 const nodemailer = require("nodemailer");
-const { MYEMAIL, MYPASSWORD} = process.env
+const {PASSWORD, EMAIL, MYNUMBER, TWILIO_NUMBER, ACCOUNT_SID, AUTH_TOKEN} = require('./config.js')
+const accountSid = ACCOUNT_SID;
+const authToken = AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
 
 module.exports = {
-  send_message: (req, res) => {
-    const { message, name, email, subject } = req.body;
-      var content = `name: ${name} \n email: ${email} \n message: ${message} `
-    
-      var mailOptions = {
-        from: name,
-        to: MYEMAIL,  
-        subject: `${subject} from Contact Form`,
-        text: content
-      }
-  
-    let transporter = nodemailer.createTransport({
-      service: `gmail`,
-      host: `smtp.gmail.com`,
-      port: 465,
+  send_email: async (req, res, next) => {
+    const {email, name, number, address, zipcode, contact} = req.body.message
+    var transporter = nodemailer.createTransport({
+      host: 'smtp.mailgun.org',
+      port: 587,
       auth: {
-        user: MYEMAIL, 
-        pass: MYPASSWORD
+        user: EMAIL,
+        pass: PASSWORD,
       }
+
     });
- 
-    transporter.sendMail(mailOptions, (err, data) => {
-      if (err) {
-       console.log(err)
-      } else {
-        console.log(data)
-      }
+    const messageOptions = {
+      to: EMAIL,
+      from: email,
+      subject: "New Lead from Landing Page",
+      html: `<strong>
+                  Contact Information: </strong> <br/>
+                  Name: ${name} <br/>
+                  Phone Number: ${number} <br/>
+                  Email: ${email} <br/>
+                  Address: ${address} <br/>
+                  Zipcode: ${zipcode} <br/>
+                  Preferred Contact Method: ${contact} <br/>
+                 `
+    };
+    transporter.sendMail(messageOptions, (err, info) => {
+      if(err)
+      console.log(err)
+    else
+      res.status(200).send(info);
     });
+
+    next()
+  },
+  send_sms: (req, res, next) => {
+    const {name, number} = req.body.message
+client.messages
+  .create({
+     body: `New Lead: ${name} \n
+     Number: ${number}`,
+     from: TWILIO_NUMBER,
+     to: MYNUMBER
+   })
+  .then(message => console.log(message.sid));
+
   }
 };
