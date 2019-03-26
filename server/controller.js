@@ -8,7 +8,7 @@ const client = require('twilio')(accountSid, authToken);
 
 module.exports = {
   send_email: async (req, res, next) => {
-    const {email, name, number, address, zipcode, contact} = req.body.message
+    const {email, name, subject, message} = req.body
     var transporter = nodemailer.createTransport({
       host: 'smtp.mailgun.org',
       port: 587,
@@ -21,15 +21,12 @@ module.exports = {
     const messageOptions = {
       to: EMAIL,
       from: email,
-      subject: "New Lead from Landing Page",
+      subject: ${subject},
       html: `<strong>
                   Contact Information: </strong> <br/>
                   Name: ${name} <br/>
-                  Phone Number: ${number} <br/>
                   Email: ${email} <br/>
-                  Address: ${address} <br/>
-                  Zipcode: ${zipcode} <br/>
-                  Preferred Contact Method: ${contact} <br/>
+                  message: ${message}
                  `
     };
     transporter.sendMail(messageOptions, (err, info) => {
