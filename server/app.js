@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 
 
-app.post(`/api/message`, ctrl.send_email, send_sms) 
+app.post(`/api/message`, ctrl.send_email, ctrl.send_sms) 
   
 
 const Port = SERVER_PORT || 4100

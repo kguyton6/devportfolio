@@ -146,7 +146,7 @@ class Contact extends React.Component {
       <Wrapper>
         <Form onSubmit={this.sendMessage}
          action="#" 
-          method="POST">
+          >
           <h3>Get in Touch</h3>
           <input
             type='text'
