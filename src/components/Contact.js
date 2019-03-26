@@ -92,7 +92,7 @@ const Form = styled.form`
 class Contact extends React.Component {
   state = {
     name: "",
-    _replyto: "",
+    email: "",
     subject: "",
     message: "",
     alert: false,
@@ -111,22 +111,22 @@ class Contact extends React.Component {
 
   };
   sendMessage = e => {
-    const { _replyto, name, subject, message } = this.state;
+    const { email, name, subject, message } = this.state;
     axios
-      .post("/api/message", { _replyto, name, subject, message })
+      .post("/api/message", { email, name, subject, message })
       .then(() => {
        this.toggleAlert()
         this.setState({
           alert: true,
           message: "",
           name: "",
-          _replyto: '',
+          email: '',
           subject: ""
         });
       })
       .catch(err => console.log(err));
   };
-  toggle = () => {
+  toggleHome = () => {
     return this.props.history.push("/");
   };
  
@@ -140,7 +140,7 @@ class Contact extends React.Component {
           {" "}
           Thank you!{" "}
         </span>
-        <Button onClick={this.toggle}>Ok</Button>
+        <Button onClick={this.toggleHome}>Ok</Button>
       </Modal>
     ) : (
       <Wrapper>
