@@ -2,9 +2,72 @@ import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "./Styles";
 import { withRouter } from "react-router";
+import ContactForm from './Form'
 import axios from "axios";
 import Modal from "./Modal";
+import ReactDOM from 'react-dom'
+const appRoot = document.getElementById('app-root')
+const ModalWrapper = styled.div`
+  width: ${props => props.width || "300px"};
+  height: ${props => props.height || "110px"};
+  background-color: white;
+  position: absolute;
+  left: 40%;
+  color: black;
+  font-size: 20px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  animation: leftslide 0.5s ease forwards;
+  z-index: 10;
 
+  @keyframes leftslide {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: 40%;
+    }
+  }
+  @media (max-width: 950px) {
+    @keyframes leftslide {
+      0% {
+        left: 0%;
+      }
+      100% {
+        left: 33vw;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    @keyframes leftslide {
+      0% {
+        left: 0%;
+      }
+      100% {
+        left: 28%;
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    width: 200px;
+    button {
+      width: 60%;
+    }
+  }
+  @media (max-width: 450px) {
+    @keyframes leftslide {
+      0% {
+        left: 0%;
+      }
+      100% {
+        left: 22%;
+      }
+    }
+  }
+`
 const Button = styled.button`
   background-color: lightblue;
   width: 130px;
@@ -12,6 +75,7 @@ const Button = styled.button`
   border-radius: 3px;
   animation: none;
 `;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -90,7 +154,7 @@ const Form = styled.form`
 
 
 class Contact extends React.Component {
-  state = {
+  initialState = {
     name: "",
     email: "",
     subject: "",
@@ -98,6 +162,7 @@ class Contact extends React.Component {
     alert: false,
     disabled: true
   };
+  state = this.initialState
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -105,47 +170,51 @@ class Contact extends React.Component {
   handleTextArea = e => {
     this.setState({ [e.target.name]: e.target.value, disabled: false });
   };
-  toggleAlert = e => {
-    e.preventDefault();
-    this.setState({ alert: true });
+  
+  toggleAlert = () => {
+    this.setState(prevState => {
+      return { alert: !prevState.alert}
+      });
 
   };
-  sendMessage = e => {
+  handleSubmit = (e) => {
+    e.preventDefault(e)
+    this.sendMessage(e)
+  }
+sendMessage = (e) => {
     const { email, name, subject, message } = this.state;
-    axios
-      .post("/api/message", { email, name, subject, message })
-      .then(() => {
-       this.toggleAlert()
-        this.setState({
-          alert: true,
-          message: "",
-          name: "",
-          email: '',
-          subject: ""
-        });
-      })
-      .catch(err => console.log(err));
-  };
+    const newMessage = {email, name, subject, message}
+    axios.post("/api/message", { newMessage })
+    .then(() =>  {
+        this.refs.form.reset()
+        return this.toggleAlert()
+      } )
+  }
   toggleHome = () => {
     return this.props.history.push("/");
   };
- 
 
-  render() {
-
-    return this.state.alert ? (
-
-        <Modal>
+  renderModal = () => {
+    if(this.state.alert){
+      return (
+        <ModalWrapper>
         <span style={{ color: "black", fontWeight: "bold" }}>
           {" "}
           Thank you!{" "}
         </span>
         <Button onClick={this.toggleHome}>Ok</Button>
-      </Modal>
-    ) : (
+      </ModalWrapper>
+      )
+    }
+  }
+ 
+
+  render() {
+    return (
       <Wrapper>
-        <Form onSubmit={this.sendMessage}
-         action="#" 
+        {this.renderModal()}
+      
+        <Form ref='form' onSubmit={this.handleSubmit}
           >
           <h3>Get in Touch</h3>
           <input
@@ -159,7 +228,7 @@ class Contact extends React.Component {
            type='email'
             required
             placeholder="Email"
-            name="_replyto"
+            name="email"
             onChange={this.handleInput}
           />
           <input
@@ -178,15 +247,15 @@ class Contact extends React.Component {
           <input
             disabled={this.state.disabled}
             id="button"
-            type="submit"
             value='Send'
             style={{ textIndent: "unset", textAlign: "center", cursor:'pointer' }}
-            onClick={this.sendMessage}
+            onClick={(e) => this.sendMessage(e)}
           />
         </Form>
 
       </Wrapper>
-    );
+    )
   }
 }
-export default withRouter(Contact);
+ReactDOM.render(<Contact/>, appRoot)
+export default Contact

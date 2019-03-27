@@ -5,7 +5,7 @@ import {Form} from './ElementStyles'
 
 
 
-export default (props) => {
+const ContactForm = (props) => {
 
     return (
         <Form {...props}>
@@ -16,3 +16,5 @@ export default (props) => {
 
     )
 }
+
+export default ContactForm
