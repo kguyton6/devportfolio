@@ -23,7 +23,7 @@ var mailgun = new Mailgun({apiKey: MAILGUN_API_KEY, domain: DOMAIN});
               console.log("got an error: ", body);
           }
           else {
-              res.status(200).send('submitted', body);
+              res.status(200).send(body);
           }
       });
 
