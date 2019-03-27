@@ -35,7 +35,7 @@ class Privy extends React.Component {
 ],
     videos: [
         {
-         slide: "https://www.youtube.com/embed/kSV9YAjTf4k",
+         slide: "https://www.youtube.com/embed/oHr0XKk71Ws",
          title: "Site Walk Through"
         },
         {
