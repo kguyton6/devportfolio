@@ -35,21 +35,14 @@ class Privy extends React.Component {
 ],
     videos: [
         {
-         slide: "https://www.youtube.com/embed/fO-7IRUwfPA",
-         title: "The header responds differently based off whether the user has a business or a client account."
+         slide: "https://youtu.be/kSV9YAjTf4k",
+         title: "Site Walk Through"
         },
         {
          slide: "https://www.youtube.com/embed/WaZ6fbn3IHU",
          title: "This clip demonstrates the ability to book an appointment and the use of Stripe to secure the slot."
         },
-         {
-         slide: "https://www.youtube.com/embed/wzGWV-MzeqU",
-         title: 'This is the Business landing view, the user can create a business account through this page.'
-         },
-         {
-            slide: "https://www.youtube.com/embed/DLymsFAUwyo",
-            title: 'The whole site is mobile responsive.'
-        }
+         
 
     ],
     currentVideoIndex: 0,
